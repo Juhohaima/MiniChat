@@ -6,7 +6,7 @@ const app = express();
 app.use(cors()); 
 app.use(express.json()); 
 
-// YHTEYS XAMPP TIETOKANTAAN
+// yhdistää mysql tietokantaan
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',      
@@ -23,7 +23,7 @@ db.connect(err => {
     }
 });
 
-// REITTI 1: Hae kaikki viestit
+// hae viestit
 app.get('/messages', (req, res) => {
     db.query("SELECT * FROM messages ORDER BY created_at ASC", (err, results) => {
         if (err) return res.status(500).send(err);
@@ -31,7 +31,7 @@ app.get('/messages', (req, res) => {
     });
 });
 
-// REITTI 2: Tallenna uusi viesti
+// tallenna uusi viesti
 app.post('/messages', (req, res) => {
     const { text, sender } = req.body;
     db.query("INSERT INTO messages (text, sender) VALUES (?, ?)", [text, sender], (err, result) => {

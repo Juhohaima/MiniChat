@@ -36,6 +36,10 @@ const styles = StyleSheet.create({
     },
     otherBubbleContainer: {
         alignSelf: 'flex-start',
+        backgroundColor: '#F2F2F7',
+        borderBottomLeftRadius: 2,
+        borderwidth: 1,
+        borderColor: '#E5E5EA',
     },
     bubble: {
         padding: 10,
@@ -55,6 +59,7 @@ const styles = StyleSheet.create({
         color: '#fff',
     },
     otherText: {
-        color: '#fff',
+        color: '#000000',
+        fontSize: 16,
     },
     });

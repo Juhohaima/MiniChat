@@ -1,5 +1,5 @@
 import { useLocalSearchParams } from 'expo-router';
-import React, { useEffect, useState } from 'react'; // Lisätty useEffect tänne
+import React, { useEffect, useState } from 'react';
 import { FlatList, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import MessageBubble from '../components/MessageBubble';
 import MessageInput from '../components/MessageInput';
@@ -14,12 +14,10 @@ export default function ChatScreen() {
   const { user } = useLocalSearchParams();
   const [messages, setMessages] = useState<Message[]>([]);
 
-  // 1. Funktio viestien hakemiseen palvelimelta
   const fetchMessages = async () => {
     try {
       const response = await fetch('http://localhost:3000/messages');
       const data = await response.json();
-      // MySQL palauttaa id:n usein numerona, muutetaan se stringiksi FlatListiä varten
       const formattedData = data.map((msg: any) => ({
         ...msg,
         id: msg.id.toString(),
@@ -30,18 +28,16 @@ export default function ChatScreen() {
     }
   };
 
-  // 2. Automaattinen haku 10 sekunnin välein
   useEffect(() => {
-    fetchMessages(); // Haetaan heti kun sivu latautuu
+    fetchMessages();
 
     const interval = setInterval(() => {
-      fetchMessages();
+      fetchMessages(); // hae uudet viestit 10 sekunnin välein
     }, 10000);
 
-    return () => clearInterval(interval); // Puhdistetaan ajastin kun poistutaan
+    return () => clearInterval(interval); // haku loppuu kun poistutaan chatista
   }, []);
 
-  // 3. Viestin lähettäminen
   const handleSendMessage = async (text: string) => {
     try {
       const response = await fetch('http://localhost:3000/messages', {
@@ -54,11 +50,10 @@ export default function ChatScreen() {
       });
 
       if (response.ok) {
-        // Haetaan viestit heti lähetyksen jälkeen, jotta oma viesti näkyy heti
         fetchMessages();
       }
     } catch (error) {
-      console.error('Virhe viestin lähetyksessä:', error);
+      console.error('Virhe viestin lähettämisessä:', error);
     }
   };
 
@@ -79,7 +74,7 @@ export default function ChatScreen() {
             isOwnMessage={item.sender === user} 
           />
         )}
-        inverted // Pitää uusimmat viestit alhaalla
+        inverted // uudet viestit alimpana
         style={styles.chatArea}
       />
 

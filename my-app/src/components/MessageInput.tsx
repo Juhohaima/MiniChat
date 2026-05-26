@@ -5,6 +5,7 @@ interface MessageInputProps {
   onSend: (text: string) => void;
 }
 
+// viestin tekstikenttä ja lähetysnappi
 export default function MessageInput({ onSend }: MessageInputProps) {
   const [text, setText] = useState('');
 
@@ -15,6 +16,7 @@ export default function MessageInput({ onSend }: MessageInputProps) {
     }
   };
 
+  // tekstin kirjoituskenttä
   return (
     <View style={styles.container}>
       <TextInput
@@ -24,7 +26,7 @@ export default function MessageInput({ onSend }: MessageInputProps) {
         onChangeText={setText}
       />
       <TouchableOpacity style={styles.button} onPress={handleSend}>
-        <Text style={styles.buttonText}>Lähetä</Text>
+        <Text style={styles.buttonText}>Lähetä</Text> {/* lähetä nappi */}
       </TouchableOpacity>
     </View>
   );
@@ -37,6 +39,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
   },
+  // viestin kirjoituskenttä
   input: {
     flex: 1,
     borderWidth: 1,
