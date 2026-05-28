@@ -16,7 +16,7 @@ export default function ChatScreen() {
 
   const fetchMessages = async () => {
     try {
-      const response = await fetch('http://localhost:3000/messages');
+      const response = await fetch('http://10.0.2.2:3000/messages');
       const data = await response.json();
       const formattedData = data.map((msg: any) => ({
         ...msg,
@@ -40,7 +40,7 @@ export default function ChatScreen() {
 
   const handleSendMessage = async (text: string) => {
     try {
-      const response = await fetch('http://localhost:3000/messages', {
+      const response = await fetch('http://10.0.2.2:3000/messages', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
