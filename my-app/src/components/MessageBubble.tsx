@@ -28,7 +28,7 @@ export default function MessageBubble({ text, sender, isOwnMessage }: MessageBub
 const styles = StyleSheet.create({
     bubbleContainer: {
         marginVertical: 5,
-        marginhorizontal: 10,
+        marginHorizontal: 10,
         maxWidth: '80%',
     },
     ownBubbleContainer: {
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
         backgroundColor: '#F2F2F7',
         borderBottomLeftRadius: 2,
-        borderwidth: 1,
+        borderWidth: 1,
         borderColor: '#E5E5EA',
     },
     bubble: {

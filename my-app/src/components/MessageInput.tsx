@@ -26,7 +26,7 @@ export default function MessageInput({ onSend }: MessageInputProps) {
         onChangeText={setText}
       />
       <TouchableOpacity style={styles.button} onPress={handleSend}>
-        <Text style={styles.buttonText}>Lähetä</Text> {/* lähetä nappi */}
+        <Text style={styles.buttonText}>Lähetä</Text>
       </TouchableOpacity>
     </View>
   );
@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     marginRight: 10,
   },
+  // lähetä nappi
   button: {
     backgroundColor: '#007AFF',
     borderRadius: 20,

@@ -19,13 +19,14 @@ db.connect(err => {
         console.error('VIRHE: XAMPP/MySQL ei ole päällä tai tietokanta puuttuu!');
         console.error(err.message);
     } else {
-        console.log('Hienoa! Yhteys MySQL-tietokantaan toimii.');
+        console.log('Yhteys muodostettu tietokantaan.');
     }
 });
 
 // hae viestit
 app.get('/messages', (req, res) => {
-    db.query("SELECT * FROM messages ORDER BY created_at ASC", (err, results) => {
+    const query = "SELECT * FROM messages ORDER BY created_at DESC";
+    db.query(query, (err, results) => {
         if (err) return res.status(500).send(err);
         res.json(results);
     });
