@@ -16,7 +16,7 @@ const db = mysql.createConnection({
 
 db.connect(err => {
     if (err) {
-        console.error('VIRHE: XAMPP/MySQL ei ole päällä tai tietokanta puuttuu!');
+        console.error('virhe: XAMPP/MySQL ei ole päällä tai tietokanta puuttuu');
         console.error(err.message);
     } else {
         console.log('Yhteys muodostettu tietokantaan.');
@@ -42,5 +42,5 @@ app.post('/messages', (req, res) => {
 });
 
 app.listen(3000, () => {
-    console.log("Palvelin käynnistyi osoitteeseen http://localhost:3000");
+    console.log("Palvelin käynnistyi");
 });

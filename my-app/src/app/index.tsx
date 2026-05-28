@@ -1,4 +1,4 @@
-import { useRouter } from 'expo-router';
+import { Stack, useRouter } from 'expo-router';
 import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
@@ -18,15 +18,16 @@ export default function LoginScreen() {
   // etusivu
   return (
     <View style={styles.container}>
+      <Stack.Screen options={{ headerShown: false }} />
       <Text style={styles.title}>MiniChat</Text>
       <TextInput
         style={styles.input}
-        placeholder="Syötä nimimerkki..."
+        placeholder="Syötä mieluisa nimimerkki..."
         value={nickname}
         onChangeText={setNickname}
       />
       <TouchableOpacity style={styles.button} onPress={Login}>
-        <Text style={styles.buttonText}>Aloita keskustelu</Text>
+      <Text style={styles.buttonText}>Aloita keskustelu</Text>
       </TouchableOpacity>
     </View>
   );
@@ -38,39 +39,37 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#3d625fa5',
   },
   // MiniChat otsikko
   title: {
     fontSize: 32,
     fontWeight: 'bold',
     marginBottom: 50,
-    color: '#000000dd',
+    color: '#ffffffdd',
   },
   // nimikenttä
   input: {
     width: '100%',
     height: 45,
-    borderWidth: 2,
-    borderColor: '#ccc',
-    borderRadius: 10,
-    paddingHorizontal: 15,
+    borderRadius: 15,
+    paddingHorizontal: 12,
     backgroundColor: '#fff',
     marginBottom: 20,
   },
   // lähetä nappi
   button: {
-    backgroundColor: '#000000dd',
+    backgroundColor: '#201919dd',
     width: '100%',
     height: 50,
-    borderRadius: 10,
+    borderRadius: 15,
     justifyContent: 'center',
     alignItems: 'center',
   },
   // lähetä napin teksti
   buttonText: {
     color: '#fff',
-    fontSize: 18,
+    fontSize: 19,
     fontWeight: 'bold',
   },
 });

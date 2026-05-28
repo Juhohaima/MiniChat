@@ -1,6 +1,6 @@
 import { useLocalSearchParams } from 'expo-router';
 import React, { useEffect, useState } from 'react';
-import { FlatList, ImageBackground, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { FlatList, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import MessageBubble from '../components/MessageBubble';
 import MessageInput from '../components/MessageInput';
 
@@ -64,10 +64,6 @@ return (
         <Text style={styles.userText}>Kirjautunut käyttäjällä: {user}</Text>
       </View>
 
-      <ImageBackground
-        source={{ uri: 'https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png' }}
-        style={styles.chatBackground}
-      >
         <FlatList
           data={messages}
           keyExtractor={(item) => item.id}
@@ -80,8 +76,6 @@ return (
           )}
          
         />
-      </ImageBackground> 
-
       <MessageInput onSend={handleSendMessage} />
     </SafeAreaView>
   );
@@ -93,9 +87,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   header: {
-    padding: 20,
+    padding: 5,
     borderBottomWidth: 1,
-    borderBottomColor: '#eee',
+    borderBottomColor: '#fff',
     alignItems: 'center',
     backgroundColor: '#fff',
   },

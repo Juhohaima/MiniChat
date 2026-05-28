@@ -37,7 +37,6 @@ const styles = StyleSheet.create({
     otherBubbleContainer: {
         alignSelf: 'flex-start',
         backgroundColor: '#F2F2F7',
-        borderBottomLeftRadius: 2,
         borderWidth: 1,
         borderColor: '#E5E5EA',
     },
@@ -47,7 +46,6 @@ const styles = StyleSheet.create({
     },
     ownBubble: {
         backgroundColor: '#007AFF',
-        borderBottomLeftRadius: 2,
     },
     senderName: {
         fontSize: 12,
@@ -62,4 +60,9 @@ const styles = StyleSheet.create({
         color: '#000000',
         fontSize: 16,
     },
+    otherBubble: {
+        backgroundColor: '#F2F2F7',
+          borderWidth: 1,
+          borderColor: '#000000a5',
+  }
     });
